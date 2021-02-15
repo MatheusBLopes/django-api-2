@@ -7,12 +7,12 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class ClientesViewSet(viewsets.ModelViewSet):
-    """Listando clientes"""
+    """Listando todos os clientes"""
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome']
     search_fields = ['nome', 'cpf']
     filterset_fields = ['ativo']
-    authentication_classe = [BasicAuthentication]
-    permission_classe = [IsAuthenticated]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
