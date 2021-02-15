@@ -12,7 +12,7 @@ class ClienteSerializer(serializers.ModelSerializer):
     def validate_cpf(self, numero_cpf):
         cpf = CPF()
         if not cpf.validate(numero_cpf):
-            raise serializers.ValidationError("CPF inválido")
+            raise serializers.ValidationError("O CPF deve ser válido")
         return cpf
 
     def validate_nome(self, nome):
